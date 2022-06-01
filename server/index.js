@@ -77,7 +77,6 @@ app.delete("/todos/:id", async (req, res) => {
     }
 })
 
-
 app.listen(5000, () => {
     console.log("server started, port: 5000")
 }); //"node index" to test, use "nodemon index" for live updates instead of restarting terminal each time.
