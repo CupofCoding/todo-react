@@ -26,11 +26,11 @@ const ListTodos = () => {
     
     const getTodos = async() => {
         try {
-            // const response = await fetch("${window.location.hostname}:5000/todos");
+            const response = await fetch("${window.location.hostname}:5000/todos");
 
-            const response = await fetch(`${window.location.hostname}:5000/todos`).then((response) => {
-                this.setState({ res: response.data });
-          });
+            // const response = await fetch(`https://${window.location.hostname}:5000/todos`).then((response) => {
+            //     this.setState({ res: response.data });
+        //   });
 
 
             const jsonData = await response.json();
