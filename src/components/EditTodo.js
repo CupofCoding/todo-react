@@ -14,7 +14,10 @@ const EditTodo = ({ todo }) => {
         try {
             const body = { description };
             //data needs to be packaged again
-            const response = await fetch(`http://localhost:5000/todos/${todo.todo_id}`, {
+            const response = await fetch(`${window.location.hostname}:5000/todos/${todo.todo_id}`).then((response) => {
+                this.setState({ res: response.data });
+            } , {
+            // const response = await fetch(`http://localhost:5000/todos/${todo.todo_id}`, {
                 method: "PUT",
                 // default fetch request is GET. reassign method to PUT to update
                 headers: {"Content-Type": "application/json"},

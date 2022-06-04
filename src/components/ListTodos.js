@@ -11,7 +11,7 @@ const ListTodos = () => {
     //delete function
     const deleteTodo = async (id) => {
         try {
-            const deleteTodo = await fetch(`http://localhost:5000/todos/${id}`, {
+            const deleteTodo = await fetch(`/todos/${id}`, {
                 method: "DELETE"
             });
             // `template strings` needed to make variables within the strings. 
@@ -26,7 +26,13 @@ const ListTodos = () => {
     
     const getTodos = async() => {
         try {
-            const response = await fetch("http://localhost:5000/todos");
+            // const response = await fetch("${window.location.hostname}:5000/todos");
+
+            const response = await fetch(`${window.location.hostname}:5000/todos`).then((response) => {
+                this.setState({ res: response.data });
+          });
+
+
             const jsonData = await response.json();
             //parse first to get json data after things are added
 
