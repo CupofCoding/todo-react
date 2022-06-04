@@ -14,7 +14,7 @@ const ListTodos = () => {
             const deleteTodo = await fetch(`http://localhost:5000/todos/${id}`, {
                 method: "DELETE"
             });
-            // template strings needed to make variables within the strings. 
+            // `template strings` needed to make variables within the strings. 
 
             setTodos(todos.filter(todo => todo.todo_id !== id))
             // selects state.sets a condition for if todos fit that condition then it only returns those (returns all other ids not matching the one deleted.)
